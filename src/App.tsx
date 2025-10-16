@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Providers from "./provider";
-import List from "./pages/list";
-import ProductDescription from "./pages/ProductDescription";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/login";
+import Register from "./pages/register";
 
 const App: React.FC = () => {
   return (
     <Providers>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<List />} />
-        <Route path="/product/:slug" element={<ProductDescription />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
     </Providers>
