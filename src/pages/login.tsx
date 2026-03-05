@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store';
 import { loginUser } from '../store/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { eventBus } from 'container/eventBus';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch<AppDispatch>();
-    const navigate = useNavigate();
     const { loading, error, user } = useSelector((state: RootState) => state.auth);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -16,7 +16,7 @@ export default function Login() {
         try {
             let resultAction = await dispatch(loginUser({ email, password })).unwrap();
             if(resultAction) {
-                navigate("/product/list");
+                eventBus.emit("remote:navigate", "/");
             }
         }
         catch (error) {
