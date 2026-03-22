@@ -17,8 +17,6 @@ const App: React.FC = () => {
 
   const initialPath = stripLoginPrefix(currentPath);
 
-  console.log("🔐 Authorization App mounting with window path:", currentPath, "internal path:", initialPath);
-
   return (
     <Providers>
       <MemoryRouter initialEntries={[initialPath]}>
