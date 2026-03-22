@@ -16,6 +16,7 @@ const App: React.FC = () => {
   };
 
   const initialPath = stripLoginPrefix(currentPath);
+  console.log("Current path:", currentPath, "Initial path for MemoryRouter:", initialPath);
 
   return (
     <Providers>
